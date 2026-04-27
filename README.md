@@ -2,7 +2,7 @@
 
 An interactive 3D portfolio experience built with Three.js — explore a fully rendered room and discover my work, skills, and contact info by clicking on objects.
 
-> **Live Demo:** [_My 3D Resume_](https://jezzy.app)
+> **Live Demo:** [jezzy.app](https://jezzy.app)
 
 ---
 
