@@ -1,11 +1,21 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { base } from '$app/paths';
 	import { resume, linkCategories } from '$lib/data/resume.js';
 
 	onMount(() => {
 		document.body.classList.add('scrollable');
 		return () => document.body.classList.remove('scrollable');
 	});
+
+	const isHttpUrl = (url: string) => /^https?:\/\//i.test(url);
+
+	const resolveHref = (url: string) => {
+		if (/^(https?:\/\/|mailto:|tel:)/i.test(url)) return url;
+		if (url.startsWith('www.')) return `https://${url}`;
+		const normalized = url.startsWith('/') ? url : `/${url}`;
+		return `${base}${normalized}`;
+	};
 </script>
 
 <svelte:head>
@@ -16,7 +26,7 @@
 
 <div class="links-page">
 	<header class="links-header">
-		<a class="back" href="/">← Back to 3D Home</a>
+		<a class="back" href={base + '/'}>← Back to 3D Home</a>
 		<h1>{resume.about.name}</h1>
 		<p>{resume.about.role}</p>
 	</header>
@@ -28,7 +38,8 @@
 				<p class="subtitle">{category.subtitle}</p>
 				<div class="link-list">
 					{#each category.links as link}
-						<a class="link-item" href={link.url} target={link.url.startsWith('http') ? '_blank' : undefined} rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}>
+						{@const href = resolveHref(link.url)}
+						<a class="link-item" href={href} target={isHttpUrl(href) ? '_blank' : undefined} rel={isHttpUrl(href) ? 'noopener noreferrer' : undefined}>
 							<span class="row-top">
 								<span class="label">{link.label}</span>
 								{#if link.badge}

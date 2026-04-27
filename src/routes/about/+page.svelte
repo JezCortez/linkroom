@@ -1,9 +1,17 @@
 <script lang="ts">
 	import { resume } from '$lib/data/resume.js';
+	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 
 	// Sub-pages need scrollable body
 	onMount(() => { document.body.classList.add('scrollable'); return () => document.body.classList.remove('scrollable'); });
+
+	const resolveHref = (url: string) => {
+		if (/^(https?:\/\/|mailto:|tel:)/i.test(url)) return url;
+		if (url.startsWith('www.')) return `https://${url}`;
+		const normalized = url.startsWith('/') ? url : `/${url}`;
+		return `${base}${normalized}`;
+	};
 </script>
 
 <svelte:head>
@@ -13,7 +21,7 @@
 </svelte:head>
 
 <div class="page">
-	<a href="/" class="back-link">← Back to 3D Portfolio</a>
+	<a href={base + '/'} class="back-link">← Back to 3D Portfolio</a>
 
 	<header>
 		<h1>{resume.about.name}</h1>
@@ -41,7 +49,8 @@
 		<h2 id="links-heading">Links</h2>
 		<div class="links">
 			{#each resume.about.links as link}
-				<a href={link.url} class="link-btn {link.type}" rel="noopener">{link.label}</a>
+				{@const href = resolveHref(link.url)}
+				<a href={href} class="link-btn {link.type}" rel="noopener noreferrer">{link.label}</a>
 			{/each}
 		</div>
 	</section>

@@ -10,7 +10,15 @@
 	// content is in the HTML source, indexed, and linkable without JavaScript.
 
 	import { resume } from '$lib/data/resume.js';
+	import { base } from '$app/paths';
 	import { webgl } from '$lib/stores/scene.svelte.js';
+
+	const resolveHref = (url: string) => {
+		if (/^(https?:\/\/|mailto:|tel:)/i.test(url)) return url;
+		if (url.startsWith('www.')) return `https://${url}`;
+		const normalized = url.startsWith('/') ? url : `/${url}`;
+		return `${base}${normalized}`;
+	};
 </script>
 
 <div class="fallback-root" class:webgl-hidden={webgl.supported && webgl.checked}>
@@ -37,7 +45,8 @@
 			</ul>
 			<div class="links">
 				{#each resume.about.links as link}
-					<a href={link.url} class="fb-link {link.type}" rel="noopener">
+					{@const href = resolveHref(link.url)}
+					<a href={href} class="fb-link {link.type}" rel="noopener noreferrer">
 						{link.label}
 					</a>
 				{/each}

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { resume } from '$lib/data/resume.js';
+	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 
 	onMount(() => { document.body.classList.add('scrollable'); return () => document.body.classList.remove('scrollable'); });
@@ -12,7 +13,7 @@
 </svelte:head>
 
 <div class="page">
-	<a href="/" class="back-link">← Back to 3D Portfolio</a>
+	<a href={base + '/'} class="back-link">← Back to 3D Portfolio</a>
 
 	<header>
 		<h1>Contact</h1>

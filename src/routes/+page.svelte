@@ -6,6 +6,7 @@
 	// The page itself holds NO state — it's a thin shell.
 
 	import { onMount } from 'svelte';
+	import { base } from '$app/paths';
 	import { linksHubUrl } from '$lib/data/resume.js';
 
 	// Three.js scene (lazy-imported — excluded from SSR bundle entirely)
@@ -27,7 +28,7 @@
 		SceneComponent = mod.default;
 	});
 
-	const linksShortcutHref = linksHubUrl || '/links';
+	const linksShortcutHref = linksHubUrl || `${base}/links`;
 	const linksShortcutExternal = /^https?:\/\//.test(linksShortcutHref);
 </script>
 

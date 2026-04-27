@@ -2,6 +2,7 @@
 
 import type { SceneObjectKey } from './scene.svelte.js';
 import { linkCategories } from '$lib/data/resume.js';
+import { base } from '$app/paths';
 
 // ─── Panel ────────────────────────────────────────────────────────────────────
 
@@ -31,13 +32,22 @@ function buildPanelContent(key: SceneObjectKey): PanelContent {
 			.replace(/"/g, '&quot;')
 			.replace(/'/g, '&#39;');
 
+	const isHttpUrl = (url: string) => /^https?:\/\//i.test(url);
+
+	const resolveHref = (url: string) => {
+		if (/^(https?:\/\/|mailto:|tel:)/i.test(url)) return url;
+		if (url.startsWith('www.')) return `https://${url}`;
+		const normalized = url.startsWith('/') ? url : `/${url}`;
+		return `${base}${normalized}`;
+	};
+
 	const links = category.links
 		.map((link) => {
-			const isExternal = /^https?:\/\//.test(link.url);
-			const targetAttrs = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+			const href = resolveHref(link.url);
+			const targetAttrs = isHttpUrl(href) ? ' target="_blank" rel="noopener noreferrer"' : '';
 			const badge = link.badge ? `<span class="linktree-badge">${esc(link.badge)}</span>` : '';
 			return `
-				<a class="linktree-item" href="${esc(link.url)}"${targetAttrs}>
+				<a class="linktree-item" href="${esc(href)}"${targetAttrs}>
 					<span class="linktree-head">
 						<span class="linktree-label">${esc(link.label)}</span>
 						${badge}
