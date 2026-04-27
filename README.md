@@ -6,25 +6,18 @@ An interactive 3D portfolio experience built with Three.js — explore a fully r
 
 ---
 
-## Preview
-
-![3D Resume Preview](preview-day.png)
-![3D Resume Preview](preview-night.png)
-
----
-
 ## What It Is
 
-Instead of a flat page, this portfolio renders a 3D room you can orbit, zoom, and interact with. Each object in the room is a portal to a section of my resume:
+Instead of a flat page, this renders a 3D room you can orbit, zoom, and interact with. Each object in the room is a portal to a section of links I want highlighted:
 
 | Object | Section |
 |---|---|
-| 💻 Laptop | Projects |
-| 📚 Bookshelf | Skills |
-| 🖼️ Wall Frame | About Me |
-| 🧑‍💻 Character | Contact |
+| 💻 Computer | Gaming |
+| 📚 Bookshelf | Socials |
+| 📺 TV | Development |
+| 🧑‍💻 Character | Me |
 
-The room lighting and wall painting also change based on the time of day — visit at night for a different look.
+The room lighting also changes based on the time of day, there's a toggleable Day/Night cycle to see both sides and an auto state to automatically update at day/night time.
 
 ---
 
@@ -86,20 +79,20 @@ my-3d-resume/
 
 ## Customization
 
-All personal content lives in **`src/lib/data/resume.ts`**. Edit it to make this your own:
+All personal content lives in **`src/lib/data/resume.ts`**. Edit it to make this your own, links are in **`linkCategories`**, you can specify any link to have a badge with any label you want:
 
 ```ts
-export const resumeData = {
-  about: {
-    name: "Your Name",
-    role: "Your Title",
-    bio: "Your bio...",
-    // ...
-  },
-  projects: [ /* your projects */ ],
-  skills: { frontend: [], backend: [], tools: [] },
-  contact: { email: "", github: "", linkedin: "" },
-};
+export const linkCategories: LinkCategoryMap = {
+	laptop: {
+		title: 'Category Title',
+		subtitle: 'Description',
+		links: [
+			{ label: 'link 1', url: '#', description: '#', badge: 'Featured' },
+			{ label: 'link 2', url: '#', description: '#' },
+			{ label: 'link 3', url: '#', description: '#' },
+			{ label: 'link 4', url: '#', description: '#' }
+		]
+	},
 ```
 
 ---
@@ -144,4 +137,4 @@ npm run preview   # preview the production build locally
 
 ## License
 
-MIT — feel free to fork, customize, and use as your own portfolio.
+MIT — feel free to fork, customize, and use as your own portfolio or links website.
