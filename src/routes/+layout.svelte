@@ -1,5 +1,6 @@
 <script lang="ts">
-	import favicon from '$lib/assets/jezzy.svg';
+	import { assets } from '$app/paths';
+	const favicon = `${assets}/jezzy.svg`;
 	import { resume } from '$lib/data/resume.js';
 
 	let { children } = $props();
