@@ -1,5 +1,5 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/jezzy.svg';
 	import { resume } from '$lib/data/resume.js';
 
 	let { children } = $props();
@@ -51,7 +51,7 @@
 	<link rel="icon" href={favicon} />
 
 	<!-- ── Primary SEO ────────────────────────────────────────────────────── -->
-	<title>{resume.about.name} — {resume.about.role} | Interactive 3D Portfolio</title>
+	<title>jezzy's linkroom</title>
 	<meta name="description" content="Portfolio of {resume.about.name}, a {resume.about.role} based in {resume.contact.location}. {resume.about.bio}" />
 	<meta name="keywords" content="frontend developer portfolio, {resume.about.name}, Three.js developer, SvelteKit developer, WebGL portfolio, interactive resume, creative developer, {resume.skills.frontend.join(', ')}" />
 	<meta name="author" content={resume.about.name} />
