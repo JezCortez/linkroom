@@ -126,7 +126,7 @@ export const linkCategories: LinkCategoryMap = {
 		title: 'Socials',
 		subtitle: 'My social links',
 		links: [
-			{ label: 'Facebook', url: 'https://www.facebook.com/jez.kendrick.cortez/', description: 'Facebook', badge: 'Main' },
+			{ label: 'Reddit', url: 'https://www.reddit.com/user/jezzyboi31/', description: 'Forums', badge: 'Main' },
 			{ label: 'Twitter/X', url: 'https://x.com/Jezzy_31', description: 'X updates' },
 			{ label: 'Instagram', url: 'https://www.instagram.com/jez_cortez/', description: 'Photos and shii' },
 			{ label: 'Threads', url: 'https://www.threads.com/', description: 'Same same with X but different' }
@@ -137,7 +137,7 @@ export const linkCategories: LinkCategoryMap = {
 		subtitle: 'More context about who I am and how I work.',
 		links: [
 			{ label: 'Portfolio Website', url: 'https://jezcortez.dev', description: 'My Portfolio Website', badge: 'Portfolio' },
-			{ label: 'GitHub', url: 'https://github.com/JezCortez', description: 'Code, open-source, and collaborations.' },
+			{ label: 'GitHub', url: 'https://github.com/JezCortez', description: 'Code, open-source, and collaborations' },
 			{ label: 'Dev.to', url: 'https://dev.to/jez_cortez_ba0267014fe942', description: 'Dev Community' },
 			{ label: 'Dribble', url: 'https://dribbble.com/jez-kendrick-cortez', description: 'UI/UX Design' }
 		]
@@ -147,9 +147,9 @@ export const linkCategories: LinkCategoryMap = {
 		subtitle: 'All about me, Contact me here.',
 		links: [
 			{ label: 'Email', url: 'mailto:jezcortez31@gmail.com', description: 'Project Inquiries and quick contact.', badge: 'Fastest' },
-			{ label: 'Resume', url: '/resume.pdf', description: 'View or download my resume (PDF).' },
-			{ label: 'LinkedIn', url: 'https://www.linkedin.com/in/jez-kendrick-cortez-8b7580338', description: 'Professional profile and experience.' },
-			{ label: 'GitHub', url: 'https://github.com/JezCortez', description: 'Code, open-source, and collaborations.' }
+			{ label: 'Resume', url: '/resume.pdf', description: 'View or download my resume (PDF)' },
+			{ label: 'LinkedIn', url: 'https://www.linkedin.com/in/jez-kendrick-cortez-8b7580338', description: 'Professional profile and experience' },
+			{ label: 'Facebook', url: 'https://www.facebook.com/jez.kendrick.cortez/', description: 'Messenger and Posts' }
 		]
 	}
 };
