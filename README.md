@@ -1,6 +1,6 @@
-# 🖥️ My 3D Resume
+# 🖥️ 3D Linkroom
 
-An interactive 3D portfolio experience built with Three.js — explore a fully rendered room and discover my work, skills, and contact info by clicking on objects.
+An interactive 3D links experience built with Three.js — explore a fully rendered room and discover my links for gaming, socials, etc.
 
 > **Live Demo:** [jezzy.app](https://jezzy.app)
 
@@ -94,6 +94,7 @@ export const linkCategories: LinkCategoryMap = {
 		]
 	},
 ```
+Change the Favicon in **`src/lib/app.html`**, Change the web details in **`src/routes/+layout.svelte`** under **`Primary SEO`** comment
 
 ---
 
