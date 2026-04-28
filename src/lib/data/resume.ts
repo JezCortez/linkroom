@@ -70,7 +70,7 @@ export const linksHubUrl = '';
 export const resume: ResumeData = {
 	about: {
 		name: 'Jez Kendrick Cortez',
-		role: 'Frontend Developer',
+		role: 'Software Developer',
 		bio: 'I build interactive web experiences with clean UI, strong UX fundamentals, and immersive 3D touches.',
 		facts: ['Focused on modern frontend engineering', 'Open to collaboration opportunities', 'Gaming and web-tech enthusiast'],
 		links: [
